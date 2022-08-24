@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery {
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.g-card {
+  position: relative;
+  width: 208px;
+  height: 268px;
+  border-radius: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.g-card::after, 
+.g-img,
+.g-data {
+  position: absolute
+}
+
+.g-img {
+  inset: 0;
+  margin: auto;
+  transition: transform .3s;
+}
+
+.g-card::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 32%,
+                             hsla(0, 0%, 0%, .3) 100%);
+  top: 0;
+  z-index: 1;
+}
+
+.g-data {
+  bottom: 1.5rem;
+  left: 1.75rem;
+  z-index: 10;
+}
+
+.g-title, 
+.g-subtitle {
+  color: white;
+  font-weight: 500;
+}
+
+.g-subtitle {
+  font-size: small;
+}
+
+.g-overflow {
+  position: relative;
+}
+
+.gallery-thumbnails {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform .3s
+}
+
+.g-thumbs-img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.gallery-cards, 
+.gallery-thumbs {
+  width: 260px;
+}
+
+.gallery-cards:hover .g-img {
+  transform: scale(1.1);
+}
+
+.gallery .swiper-wrapper {
+  padding: 2.5rem 0;
+}
+
+.gallery-thumbs {
+  height: 132px;
+}
+
+.swiper-slide-active .gallery-thumbnails {
+  transform: translateY(-1.25rem) scale(1.2);
+}
+
+.swiper-slide-next .gallery-thumbnails {
+  transform: rotate(15deg);
+}
+
+.swiper-slide-prev .gallery-thumbnails {
+  transform: rotate(-15deg);
+}
+
+.swiper-pagination-fraction {
+  font-size: small;
+  letter-spacing: 1px;
+  font-weight: 500;
+  bottom: 0;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: '';
+}
+
+.swiper-button-next, 
+.swiper-button-prev {
+  font-size: 1.5rem;
+  color: grey;
+  top: 5.5rem;
+}
+
+.swiper-button-next {
+  right: -1.5rem;
+  transform: rotate(15deg);
+}
+
+.swiper-button-prev {
+  left: -1.5rem;
+  transform: rotate(-15deg);
+}
+
+.gallery-cards::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.swiper-horizontal.swiper-css-mode > .swiper-wrapper {
+  scroll-snap-type: initial;
+}
+
+/* for small screens like G fold */
+@media screen and (max-width: 320px){
+  .swiper-button-next, 
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* screens over 1024 */
+@media screen and (min-width: 1024px){
+  .g-card {
+    width: 270px;
+    height: 320px
+  }
+
+  .gallery-thumbnails {
+    width: 75px;
+    height: 75px;
+  }
+
+  .gallery-cards,
+  .gallery-thumbs {
+    width: 280px;
+  }
+}
